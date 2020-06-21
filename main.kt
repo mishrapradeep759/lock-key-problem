@@ -1,6 +1,6 @@
 fun main(){
-    var keys = (0..999).map { String.format("%03d", it) }.toList()
-    val hints = mapOf(
+    var keys = (0..999).map { String.format("%03d", it) }
+    val conditions = mapOf(
         "291" to listOf(1, 1),
         "245" to listOf(1, 0),
         "463" to listOf(2, 0),
@@ -8,7 +8,7 @@ fun main(){
         "569" to listOf(1, 0)
     )
 
-    hints.forEach{ (k, v) ->
+    conditions.forEach{ (k, v) ->
         keys = keys.filter {value ->
             (k.toSet().intersect(value.toSet())).size == v[0] &&
                     (positionalSet(k).toSet().intersect(positionalSet(value))).size == v[1]
